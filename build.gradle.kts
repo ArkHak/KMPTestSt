@@ -1,5 +1,7 @@
 plugins {
-    kotlin("multiplatform") apply false version "2.1.20"
+    alias(libs.plugins.multiplatform) apply false
+    alias(libs.plugins.compose) apply false
+    alias(libs.plugins.compose.compiler) apply false
 }
 
 
