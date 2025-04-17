@@ -1,3 +1,8 @@
+plugins {
+    kotlin("multiplatform") apply false version "2.1.20"
+}
+
+
 val firstTask = "MyCustomTasks1"
 val secondTask = "MyCustomTasks2"
 val key = "someKey"
@@ -44,7 +49,7 @@ tasks.register(firstTask) {
 
 // Будет пройдено по всем таскам, не зависимо от порядка вызова по файлам - живые коллекции
 tasks.configureEach {
-        if (name.contains("Custom")) {
+    if (name.contains("Custom")) {
         group = myGroup
     }
 }
