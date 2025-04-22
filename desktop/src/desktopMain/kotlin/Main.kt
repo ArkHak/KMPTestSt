@@ -3,12 +3,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import o.mysin.kmptestst.SayHelloFromCommon
-import o.mysin.kmptestst.sayHello
+import o.mysin.kmptestst.root.RootScreen
 
 fun main() {
-    sayHello()
-
     application {
         val state = rememberWindowState().apply { size = DpSize(200.dp, 200.dp) }
 
@@ -17,7 +14,7 @@ fun main() {
             state = state,
             title = "KMPTestSr"
         ) {
-            SayHelloFromCommon()
+            RootScreen()
         }
     }
 }
