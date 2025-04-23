@@ -1,12 +1,10 @@
 package o.mysin.kmptestst.root
 
-import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import o.mysin.kmptestst.info.DeviceInfoScreen
+import o.mysin.kmptestst.settings.compose.SettingsScreen
+import o.mysin.kmptestst.settings.SettingsViewModel
 
 @Composable
 fun RootScreen() {
-    Scaffold {
-        DeviceInfoScreen()
-    }
+    SettingsScreen(SettingsViewModel())
 }
