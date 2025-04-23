@@ -7,7 +7,7 @@ import o.mysin.kmptestst.platform.DeviceInfo
 import o.mysin.kmptestst.settings.SettingsContract.*
 import o.mysin.kmptestst.storage.SettingsManager
 
-class SettingsViewModel : BaseViewModel<SettingsContract.State, Nothing>() {
+class SettingsViewModel : BaseViewModel<State, Nothing>() {
 
     init {
 

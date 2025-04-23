@@ -1,13 +1,18 @@
 package o.mysin.kmptestst.settings.compose
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.Checkbox
+import androidx.compose.material.CheckboxDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -15,6 +20,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import o.mysin.kmptestst.common.ui.AppThemeProvider
 import o.mysin.kmptestst.settings.SettingsViewModel
 
 @Composable
@@ -31,11 +37,42 @@ fun SettingsScreen(
         contentAlignment = Alignment.Center
     ) {
         Column {
-            Text(state.deviceInfo)
+
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                backgroundColor = AppThemeProvider.colors.surface,
+
+                ) {
+                Text(
+                    state.deviceInfo,
+                    color = AppThemeProvider.colors.onSurface,
+                    modifier = Modifier.padding(16.dp)
+                )
+            }
+
             Spacer(modifier = Modifier.height(16.dp))
-            Row {
-                Text("Dark theme", modifier = Modifier.weight(1f))
-                Checkbox(state.themeIsDark, onCheckedChange = { viewModel.switchTheme(it) })
+
+            Row(
+                modifier = Modifier
+                    .background(
+                        AppThemeProvider.colors.surface,
+                        RoundedCornerShape(16.dp)
+                    )
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "Dark theme",
+                    modifier = Modifier.weight(1f),
+                    color = AppThemeProvider.colors.onSurface
+                )
+                Checkbox(
+                    state.themeIsDark, onCheckedChange = { viewModel.switchTheme(it) },
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = AppThemeProvider.colors.accent,
+                        uncheckedColor = AppThemeProvider.colors.onSurface
+                    )
+                )
             }
         }
     }
