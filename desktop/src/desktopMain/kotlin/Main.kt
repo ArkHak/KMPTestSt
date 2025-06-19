@@ -3,7 +3,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import o.mysin.kmptestst.root.RootScreen
+import o.mysin.kmptestst.root.compose.RootScreen
+import o.mysin.kmptestst.root.RootViewModel
 
 fun main() {
     application {
@@ -14,7 +15,7 @@ fun main() {
             state = state,
             title = "KMPTestSr"
         ) {
-            RootScreen()
+            RootScreen(RootViewModel())
         }
     }
 }

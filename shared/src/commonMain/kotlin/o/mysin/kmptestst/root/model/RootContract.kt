@@ -1,4 +1,4 @@
-package o.mysin.kmptestst.root
+package o.mysin.kmptestst.root.model
 
 import o.mysin.kmptestst.base.BaseViewState
 import o.mysin.kmptestst.common.ui.AppPrefs
@@ -7,7 +7,8 @@ class RootContract {
 
     data class State(
         val themeIsDark: Boolean,
-        val firstDayMonday: Boolean
+        val firstDayMonday: Boolean,
+        val selectedTab: AppTab,
     ) : BaseViewState {
 
         val appPrefs: AppPrefs
@@ -16,7 +17,8 @@ class RootContract {
         companion object {
             val NONE = State(
                 themeIsDark = true,
-                firstDayMonday = true
+                firstDayMonday = true,
+                selectedTab = AppTab.Events
             )
         }
     }

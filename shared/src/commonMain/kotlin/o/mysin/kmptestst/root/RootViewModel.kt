@@ -3,7 +3,8 @@ package o.mysin.kmptestst.root
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import o.mysin.kmptestst.base.BaseViewModel
-import o.mysin.kmptestst.root.RootContract.*
+import o.mysin.kmptestst.root.model.AppTab
+import o.mysin.kmptestst.root.model.RootContract.*
 import o.mysin.kmptestst.storage.SettingsManager
 
 class RootViewModel : BaseViewModel<State, Nothing>() {
@@ -15,4 +16,6 @@ class RootViewModel : BaseViewModel<State, Nothing>() {
     }
 
     override fun initialState(): State = State.NONE
+
+    fun handleClickOnTab(appTab: AppTab) = updateState { copy(selectedTab = appTab) }
 }
