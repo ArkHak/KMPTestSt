@@ -28,8 +28,11 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.ui)
                 implementation(compose.material)
+
                 api(libs.resource.core)
                 api(libs.resource.compose)
+
+                implementation(libs.settings)
             }
         }
 
