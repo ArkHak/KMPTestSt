@@ -7,10 +7,12 @@ import o.mysin.kmptestst.root.model.AppTab
 import o.mysin.kmptestst.root.model.RootContract.*
 import o.mysin.kmptestst.storage.SettingsManager
 
-class RootViewModel : BaseViewModel<State, Nothing>() {
+class RootViewModel(
+    settingsManager: SettingsManager,
+) : BaseViewModel<State, Nothing>() {
 
     init {
-        SettingsManager.themeIsDarkFlow.onEach { isDark ->
+        settingsManager.themeIsDarkFlow.onEach { isDark ->
             updateState { copy(themeIsDark = isDark) }
         }.launchIn(viewModelScope)
     }

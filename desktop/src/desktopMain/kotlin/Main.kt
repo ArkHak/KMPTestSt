@@ -3,10 +3,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import o.mysin.kmptestst.di.initKoin
 import o.mysin.kmptestst.root.compose.RootScreen
-import o.mysin.kmptestst.root.RootViewModel
 
 fun main() {
+
+    initKoin()
+
     application {
         val state = rememberWindowState().apply { size = DpSize(1200.dp, 600.dp) }
 
@@ -15,7 +18,7 @@ fun main() {
             state = state,
             title = "KMPTestSr"
         ) {
-            RootScreen(RootViewModel())
+            RootScreen()
         }
     }
 }

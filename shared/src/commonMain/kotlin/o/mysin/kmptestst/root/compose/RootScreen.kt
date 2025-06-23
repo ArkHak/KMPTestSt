@@ -11,15 +11,16 @@ import androidx.compose.ui.Modifier
 import o.mysin.kmptestst.categories.CategoriesScreen
 import o.mysin.kmptestst.common.ui.AppTheme
 import o.mysin.kmptestst.common.ui.AppThemeProvider
+import o.mysin.kmptestst.di.getKoinInstance
 import o.mysin.kmptestst.events.EventsScreen
 import o.mysin.kmptestst.root.RootViewModel
 import o.mysin.kmptestst.root.model.AppTab
 import o.mysin.kmptestst.settings.compose.SettingsScreen
-import o.mysin.kmptestst.settings.SettingsViewModel
 
 @Composable
-fun RootScreen(viewModel: RootViewModel) {
+fun RootScreen() {
 
+    val viewModel = getKoinInstance<RootViewModel>()
     val state by viewModel.state.collectAsState()
 
     AppTheme(
@@ -44,6 +45,6 @@ private fun BoxScope.RootNavigation(selectedTab: AppTab) {
     when (selectedTab) {
         AppTab.Categories -> CategoriesScreen()
         AppTab.Events -> EventsScreen()
-        AppTab.Settings -> SettingsScreen(SettingsViewModel())
+        AppTab.Settings -> SettingsScreen(getKoinInstance())
     }
 }
